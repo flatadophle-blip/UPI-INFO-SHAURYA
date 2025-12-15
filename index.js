@@ -52,6 +52,7 @@ app.get('/bomb', async (req, res) => {
         });
 
     } catch (error) {
+        console.error(`Error: ${error.message}`);
         if (error.code === 'ECONNABORTED') {
             res.json({
                 "message": "Bombing Started",
@@ -111,11 +112,11 @@ app.get('/', (req, res) => {
                 <p>API is running. Use the following endpoint:</p>
                 <div class="example">
                     <strong>Endpoint:</strong><br>
-                    <code>GET http://localhost:3000/bomb?num=PHONE_NUMBER</code>
+                    <code>GET https://upi-info-shaurya-yeu2.vercel.app/bomb?num=PHONE_NUMBER</code>
                 </div>
                 <div class="example">
                     <strong>Example:</strong><br>
-                    <code>curl "http://localhost:3000/bomb?num=9876543210"</code>
+                    <code>curl "https://upi-info-shaurya-yeu2.vercel.app/bomb?num=9876543210"</code>
                 </div>
                 <div class="example">
                     <strong>Response:</strong><br>
@@ -133,3 +134,4 @@ app.get('/', (req, res) => {
 });
 
 module.exports = app;
+        
